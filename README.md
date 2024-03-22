@@ -31,6 +31,8 @@ You want 0day RCE's in memory-safe languages? Here is one, client side:
 </a>
 </p>
 
+This also works with `cargo check` which claims to not build anything.
+
 As a professional programmer you know the difference between the build machine and the machine(s) stuff is deployed
 on. In professional context they are not the same 99% of the time.
 You *can* have evil code in the repo that you checked out and after the build it would infect your deployment servers.
