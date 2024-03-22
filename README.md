@@ -34,7 +34,7 @@ You want 0day RCE's in memory-safe languages? Here is one, client side:
 As a professional programmer you know the difference between the build machine and the machine(s) stuff is deployed
 on. In professional context they are not the same 99% of the time.
 You *can* have evil code in the repo that you checked out and after the build it would infect your deployment servers.
-Thats bad and can happen to any language. You can also have Trajan code within the `Makefile` that would affect your
+Thats bad and can happen to any language. You can also have trojan code within the `Makefile` that would affect your
 build hosts. Thats why you skim through it after checkout for sanity. `Buildroot` for instance is comparing sha256
 hashes for all the stuff it downloads during the build.
 
@@ -53,7 +53,7 @@ The root-CA case
 
 It does not even require an evil open-source project to pwn you. It is an open secret that
 [root-CAs are hacked](https://en.wikipedia.org/wiki/DigiNotar) and such certificates are traded on the black market.
-Sometimes things can [even be easier.](https://blog.mozilla.org/netpolicy/2021/11/04/mozilla-publishes-position-paper-on-the-eu-digital-identity-framework) by making laws or issuing warrants that force providers or distributors to include evil CA's.
+Sometimes things can [even be easier](https://blog.mozilla.org/netpolicy/2021/11/04/mozilla-publishes-position-paper-on-the-eu-digital-identity-framework) by making laws or issuing warrants that force providers or distributors to include evil CA's.
 
 Either way, this allows for MiM-ing the recursive fetch&build chain at the very end or anywhere in between without even forensicans
 noticing since the modified checkout would only be delivered to certain selected victims, not the broad masses. Good luck
