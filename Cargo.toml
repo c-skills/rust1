@@ -1,0 +1,8 @@
+[package]
+name = "hello_world1"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+hello_world2 = { git = "https://github.com/c-skills/rust2" }
+
