@@ -38,7 +38,7 @@ As a professional programmer you know the difference between the build machine a
 on. In professional context they are not the same 99% of the time.
 You *can* have evil code in the repo that you checked out and after the build it would infect your deployment servers.
 Thats bad and can happen to any language. You can also have trojan code within the `Makefile` that would affect your
-build hosts. Thats why you skim through it after checkout for sanity. `Buildroot` for instance is comparing sha256
+build hosts. Thats why you skim through it after checkout for sanity. [Buildroot](https://buildroot.org) for instance is comparing SHA-256
 hashes for all the stuff it downloads during the build.
 
 Pwning the build system is pwning the deployment and likely pwning the developer machines too.
