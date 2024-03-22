@@ -4,7 +4,7 @@ Do not Rust your Government
 Recent discussion about memory safety of programs and finger-pointing towards C-programmers
 has gone too wild so I am just taking some little notes.
 
-While one of the inventors of C, [Dennis Ritchie](https://en.wikipedia.org/wiki/Dennis_Ritchie) received numerous
+While one of the inventors of C, [Dennis Ritchie](https://en.wikipedia.org/wiki/Dennis_Ritchie), received numerous
 awards and the honor of the very same institution - The POTUS - for his achievements (UNIX and C)
 its now all `void`.
 
@@ -12,7 +12,7 @@ I am not neglecting the technical work that is done by [CISA](https://media.defe
 They do have a point, but as always: it depends!
 
 Did they finger-point [Log4Shell](https://en.wikipedia.org/wiki/Log4Shell) that was a devastating *cyber pathogen* (lol) in a
-memory-safe language. I am not mentioning all the pwnage that happened due to PHP or how lot of the issues addressed in
+memory-safe language? I am not mentioning all the pwnage that happened due to PHP or how lot of the issues addressed in
 [rustsec](https://rustsec.org/advisories/) are actually memory-issues ...
 
 I am stopping here and are not entering the full discussion about memory-safety, GC, performance, confinements,
@@ -31,7 +31,8 @@ You want 0day RCE's in memory-safe languages? Here is one, client side:
 </a>
 </p>
 
-This also works with `cargo check` which claims to not build anything.
+This also works with `cargo check` which claims to not build anything. Best with `rustup` installs but
+also works fine with the packages provided by your distributor. The injected DSO is made for `Linux x86_64` deployments.
 
 As a professional programmer you know the difference between the build machine and the machine(s) stuff is deployed
 on. In professional context they are not the same 99% of the time.
