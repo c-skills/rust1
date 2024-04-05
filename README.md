@@ -43,10 +43,15 @@ hashes for all the stuff it downloads during the build.
 
 Pwning the build system is pwning the deployment and likely pwning the developer machines too.
 
-Under no circumstances a `make` should fetch and build recursively *and execute anything that it fetches from the untrusted recursion chain.*
-*DevOps* is a thing. You checked that the `Cargo.toml` file is clean after checkout? Great! But did you check the `build.rs` script too?
-Did you check the 100 dependencies one by one? Did you check there are no DSO's in any of the repos that `rustc` will load and execute
-during build ...
+Under no circumstances a `make` should fetch and build recursively *and execute anything that it fetches from the untrusted recursion chain.* DevOps is a thing. Keep in mind recent [liblzma debacle](https://www.openwall.com/lists/oss-security/2024/03/29/4) and OpenSSH build scripts would have
+automatically downloaded and executed everything recursively.
+
+Mind: Currently there is no way for you to verify the rust dependency chain without getting infected at last:
+
+* There is no dry-run: `cargo check` already infects you.
+* If you follow the dep-chain painfully and manually by `git clone`, you run into a TOCTOU situation:
+  The code that you checkout by hand might not be the same that is checked out by `cargo build` due to
+  finger-printing against the user-agent and selective returns by sophisticated attackers.
 
 I haven't digged into open issues of `cargo` or `rustc` or whether this topic has already been discussed.
 The version I used was `cargo 1.77.0 (3fe68eabf 2024-02-29)` which is the latest I got.
@@ -70,7 +75,7 @@ Offline Compilations ranting
 ----------------------------
 
 One personal thing that I can't get over when *just compiling* rust programs is that it notoriously contacts/downloads
-rustup servers and downloads stuff without my consent. Can you please change that? You wouldn't believe but there is
+rustup servers and downloads stuff without my consent. Can someone please change that? You wouldn't believe but there is
 folks which works offline and just wants to `compile this`, without being forced to go online and to dl 500MB of binaries
-before a single line of code is translated.
+before a single line of code is even translated.
 
